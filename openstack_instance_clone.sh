@@ -91,3 +91,4 @@ do
 done
 
 nova start $1-clone
+echo "The cloned instance is $1-clone"
