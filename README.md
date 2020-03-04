@@ -9,3 +9,4 @@ Pre-Requisites
 2.  A machine which has admin previlaged access to perform openstack and ceph commands.
 3.  Openstack openrc file to feed as source to this code.
 4.  Optionally jenkins server if your clone requests are more frequent and you may want a GUI interface to perform clones.
+5.  Save the file and assign execute permissions and invoke the job by typing ./openstack-clone.sh INSTANCE_NAME_TO_CLONE
