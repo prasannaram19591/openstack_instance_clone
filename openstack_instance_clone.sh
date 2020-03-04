@@ -6,7 +6,7 @@ srv_id=`openstack server show $1 | grep -w id | head -n 1 | awk '{print $4}'`
 openstack server show $1 | grep volumes_attached | grep -oP '\S+' | grep "}" | sed "s/u'//g" | sed "s/'},//g" | sed "s/'}]//g" >> vol_id.csv
 flv_id=`openstack server show $1 | grep flavor | awk '{print $5}' | sed 's/[( )]//g'`
 
-openstack server create --key-name rpc_support --image 32e6e096-20f8-40f3-be30-6bae5c7327c8 --flavor $flv_id --security-group 7cf2a0e6-3716-4567-a435-426a551d1465 --availability-zone nova --nic net-id=957b3b82-f6c7-4559-99d3-6b259f1554b1 $1-clone
+openstack server create --key-name rpc_support --image IMAGE_ID --flavor $flv_id --security-group SEC_GROUP_ID --availability-zone nova --nic net-id=NETWORK_ID $1-clone
 
 for k in `cat vol_id.csv`
 do
